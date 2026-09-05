@@ -1,176 +1,588 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f8dce8">
-  <title>For Aaru ❤️</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For Aaru ❤️</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <div id="hearts" class="hearts" aria-hidden="true"></div>
 
-  <main>
-    <section class="hero section" id="home">
-      <div class="hero-content reveal">
-        <p class="eyebrow">A little something for you</p>
-        <h1>Hey Aaru... 👀</h1>
-        <p>I made something for you.<br>And haan... is baar escape button nahi hai. 😂</p>
-        <button class="primary-btn" data-scroll="#intro">Start ❤️</button>
-      </div>
-    </section>
+<div id="hearts"></div>
 
-    <section class="section soft" id="intro">
-      <div class="story-card reveal">
-        <p class="eyebrow">Before you judge this website...</p>
-        <h2>Yes, I actually put effort into it. 😭</h2>
-        <p>And before we get to the important part, let's go back for a little while...</p>
-        <button class="primary-btn" data-scroll="#beginning">Let's go back →</button>
-      </div>
-    </section>
+<main id="pages">
 
-    <section class="section" id="beginning">
-      <div class="section-head reveal">
-        <span class="year">2024</span>
-        <h2>Where it all started...</h2>
-      </div>
-      <div class="memory-card reveal">
-        <div class="memory-image">
-          <img src="2024-instagram.jpg" alt="2024 Instagram memory">
+    <!-- ================= PAGE 1 ================= -->
+
+    <section class="page active" id="page1">
+
+        <div class="page-content">
+
+            <p class="eyebrow">
+                A little something for you
+            </p>
+
+            <h1>
+                Hey Aaru... 👀
+            </h1>
+
+            <p>
+                I made something for you.
+                <br>
+                And haan... is baar escape button nahi hai. 😂
+            </p>
+
+            <button class="primary-btn next">
+                Start ❤️
+            </button>
+
         </div>
-        <div class="memory-copy">
-          <span class="tag">THE FIRST ASK</span>
-          <h3>“Insta chalti ho?” 👀</h3>
-          <p>Didn't know that a simple question would become the beginning of so many memories.</p>
+
+    </section>
+
+
+    <!-- ================= PAGE 2 ================= -->
+
+    <section class="page" id="page2">
+
+        <div class="page-content card">
+
+            <p class="eyebrow">
+                Before you judge this website...
+            </p>
+
+            <h2>
+                Yes, I actually put effort into it. 😭
+            </h2>
+
+            <p>
+                And before we get to the important part,
+                let's go back for a little while...
+            </p>
+
+            <button class="primary-btn next">
+                Let's go back →
+            </button>
+
         </div>
-      </div>
+
     </section>
 
-    <section class="section soft" id="two-years">
-      <div class="timeline reveal">
-        <span>2 YEARS LATER...</span>
-        <div class="timeline-line"></div>
-      </div>
-      <div class="memory-card reverse reveal">
-        <div class="memory-image">
-          <img src="2026-instagram.jpg" alt="2026 Instagram memory">
+
+    <!-- ================= PAGE 3 : 2024 ================= -->
+
+    <section class="page" id="page3">
+
+        <div class="memory-page">
+
+            <div class="memory-title">
+
+                <span class="year">
+                    2024
+                </span>
+
+                <h2>
+                    Where it all
+                    <br>
+                    started...
+                </h2>
+
+            </div>
+
+
+            <div class="memory-card">
+
+                <img
+                    src="2024-instagram.jpg"
+                    alt="2024 Instagram memory"
+                >
+
+                <div class="memory-text">
+
+                    <span class="tag">
+                        THE FIRST ASK
+                    </span>
+
+                    <h3>
+                        “Insta chalti ho?” 👀
+                    </h3>
+
+                    <p>
+                        Didn't know that a simple question
+                        would become the beginning of
+                        so many memories.
+                    </p>
+
+                </div>
+
+            </div>
+
         </div>
-        <div class="memory-copy">
-          <span class="tag">FULL CIRCLE</span>
-          <h3>“La tera Insta de...” 😂</h3>
-          <p>2024 mein maine tumhara Insta maanga tha... 2026 mein kahani ne somehow mujhe wahi scene dobara dikha diya.</p>
-          <p class="quote">Some things really do come back around. ❤️</p>
-          <small>Plot twist: 2 saal baad bhi banda Insta hi maang raha hai. 💀</small>
+
+
+        <button class="page-btn next">
+            Next →
+        </button>
+
+    </section>
+
+
+    <!-- ================= PAGE 4 : 2026 ================= -->
+
+    <section class="page soft" id="page4">
+
+        <div class="memory-page">
+
+            <div class="memory-title">
+
+                <span class="year">
+                    2026
+                </span>
+
+                <h2>
+                    And somehow...
+                    <br>
+                    we're here again.
+                </h2>
+
+            </div>
+
+
+            <div class="memory-card">
+
+                <img
+                    src="2026-instagram.jpg"
+                    alt="2026 Instagram memory"
+                >
+
+                <div class="memory-text">
+
+                    <span class="tag">
+                        FULL CIRCLE
+                    </span>
+
+                    <h3>
+                        “La tera Insta de...” 😂
+                    </h3>
+
+                    <p>
+                        2024 mein maine tumhara Insta
+                        maanga tha...
+                    </p>
+
+                    <p>
+                        2026 mein kahani ne somehow
+                        wahi scene dobara dikha diya.
+                    </p>
+
+                    <p class="highlight">
+                        Some things really do come
+                        back around. ❤️
+                    </p>
+
+                    <small>
+                        Plot twist: 2 saal baad bhi
+                        banda Insta hi maang raha hai. 💀
+                    </small>
+
+                </div>
+
+            </div>
+
         </div>
-      </div>
+
+
+        <button class="page-btn next">
+            Continue →
+        </button>
+
     </section>
 
-    <section class="section" id="aaru">
-      <div class="section-head reveal">
-        <span class="eyebrow">Meanwhile...</span>
-        <h2>You were busy being you. ❤️</h2>
-      </div>
-      <div class="flip-frame reveal">
-        <div class="flip-inner">
-          <div class="flip-face front"><img src="aaru-photo-1.jpg" alt="Aaru photo 1"></div>
-          <div class="flip-face back"><img src="aaru-photo-2.jpg" alt="Aaru photo 2"></div>
+
+    <!-- ================= PAGE 5 : AARU PHOTOS ================= -->
+
+    <section class="page photo-page">
+
+        <div class="page-content">
+
+            <p class="eyebrow">
+                Meanwhile...
+            </p>
+
+            <h2>
+                You were busy
+                <br>
+                being you. ❤️
+            </h2>
+
+
+            <div class="flip-frame">
+
+                <div class="flip-inner">
+
+                    <div class="flip-face front">
+
+                        <img
+                            src="aaru-photo-1.jpg"
+                            alt="Aaru photo"
+                        >
+
+                    </div>
+
+
+                    <div class="flip-face back">
+
+                        <img
+                            src="aaru-photo-2.jpg"
+                            alt="Aaru photo"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="photo-caption">
+                Some pictures don't need a caption.
+            </p>
+
         </div>
-      </div>
+
+
+        <button class="page-btn next">
+            Next →
+        </button>
+
     </section>
 
-    <section class="section soft" id="gallery">
-      <div class="section-head reveal">
-        <span class="eyebrow">The little things</span>
-        <h2>Little moments. Big memories.</h2>
-      </div>
-      <div class="gallery">
-        <figure class="photo-card reveal"><img src="memory1.jpg" alt="Memory 1"><figcaption>One of those little moments. ❤️</figcaption></figure>
-        <figure class="photo-card reveal"><img src="memory2.jpg" alt="Memory 2"><figcaption>Another memory worth keeping.</figcaption></figure>
-        <figure class="photo-card reveal"><img src="memory3.jpg" alt="Memory 3"><figcaption>Some moments just stay.</figcaption></figure>
-        <figure class="photo-card reveal"><img src="memory4.jpg" alt="Memory 4"><figcaption>And somehow, here we are.</figcaption></figure>
-      </div>
-    </section>
 
-    <section class="section" id="quiz">
-      <div class="quiz-card reveal">
-        <span class="eyebrow">Memory check 👀</span>
-        <h2>Do You Remember?</h2>
-        <p id="quiz-question">Okay Aaru, let's see how much you remember. 🕵️‍♀️</p>
-        <div id="quiz-options" class="quiz-options"></div>
-        <p id="quiz-feedback" class="feedback" aria-live="polite"></p>
-      </div>
-    </section>
+    <!-- ================= PAGE 6 : PUZZLE ================= -->
 
-    <section class="section soft" id="puzzle">
-      <div class="puzzle-card reveal">
-        <span class="eyebrow">Our little secret</span>
-        <h2>Two names. One little story.</h2>
-        <p>AKUMA + AARU</p>
-        <p>Some letters got mixed up... 👀</p>
-        <div id="letters" class="letters" aria-label="Rearrange letters to make AARUMA"></div>
-        <p class="hint">Tap two letters to swap them.</p>
-        <p id="puzzle-feedback" class="feedback" aria-live="polite"></p>
-        <div id="hashtag" class="hashtag hidden">
-          <strong>AARUMA ❤️</strong>
-          <span>A little piece of you + a little piece of me.</span>
-          <b>#Aaruma</b>
+    <section class="page soft">
+
+        <div class="page-content card puzzle-card">
+
+            <p class="eyebrow">
+                Our little secret
+            </p>
+
+            <h2>
+                Two names.
+                <br>
+                One little story.
+            </h2>
+
+            <p>
+                AKUMA + AARU
+            </p>
+
+            <p>
+                Some letters got mixed up... 👀
+            </p>
+
+
+            <div
+                id="letters"
+                class="letters"
+            ></div>
+
+
+            <p class="hint">
+                Tap two letters to swap them.
+            </p>
+
+
+            <p
+                id="puzzle-feedback"
+                class="feedback"
+            ></p>
+
+
+            <div
+                id="hashtag"
+                class="hashtag hidden"
+            >
+
+                <strong>
+                    AARUMA ❤️
+                </strong>
+
+                <span>
+                    A little piece of you
+                    + a little piece of me.
+                </span>
+
+                <b>
+                    #Aaruma
+                </b>
+
+                <button
+                    class="primary-btn next"
+                >
+                    Continue ❤️
+                </button>
+
+            </div>
+
         </div>
-      </div>
+
     </section>
 
-    <section class="section transition-section" id="letter-start">
-      <div class="reveal">
-        <p>Okay... enough puzzles and memories.</p>
-        <h2>There is one thing I actually wanted to say.</h2>
-        <button class="primary-btn" id="openLetter">Read this ❤️</button>
-      </div>
-    </section>
 
-    <section class="section soft" id="letter">
-      <div class="letter-wrap reveal">
-        <div class="envelope" id="envelope">
-          <div class="envelope-flap"></div>
-          <div class="envelope-body">💌</div>
+    <!-- ================= PAGE 7 : LETTER INTRO ================= -->
+
+    <section class="page dark-page">
+
+        <div class="page-content">
+
+            <p>
+                Okay...
+            </p>
+
+            <h2>
+                Enough puzzles
+                <br>
+                and memories.
+            </h2>
+
+            <p>
+                There is one thing
+                I actually wanted to say.
+            </p>
+
+            <button
+                class="primary-btn"
+                id="openLetter"
+            >
+                Read this 💌
+            </button>
+
         </div>
-        <p class="letter-label">A letter for Aaru</p>
-        <article class="letter hidden" id="letterContent">
-          <h2>Aaru,</h2>
-          <p>I know sirf “sorry” bol dene se woh sab undo nahi ho jaata jo maine kiya.</p>
-          <p>Maine tumhe beech mein chhod diya tha. Maine breakup ka decision liya, aur shayad us waqt mujhe laga tha ki main jo kar raha hoon woh sahi hai.</p>
-          <p><strong>But now, looking back, I realise ki maine galti ki thi.</strong></p>
-          <p>Tumhe hurt karna, tumse door chale jaana... ye sab cheezein ab samajh aati hain ki kitni wrong thi.</p>
-          <p>Main ye nahi bolunga ki “mujhe ek chance do kyunki main tumhare bina nahi reh sakta.”</p>
-          <p>Main bas itna bolunga ki <strong>I want to become better.</strong></p>
-          <p>Better at understanding you. Better at communicating. Aur sabse important — better at valuing what I have before I lose it.</p>
-          <p>Mujhe nahi pata tumhare dil mein mere liye ab kya hai. Shayad gussa ho. Hurt ho. Confused ho.</p>
-          <p>Aur honestly, <strong>tum jo feel karti ho, woh valid hai.</strong></p>
-          <p>But agar mere liye tumhare dil mein thodi si bhi jagah abhi baaki hai...</p>
-          <p class="letter-highlight">Can we try again?</p>
-          <p>Not to repeat the old story.</p>
-          <p><strong>But to write a better one this time. ❤️</strong></p>
-          <button class="primary-btn" data-scroll="#proposal">One last thing →</button>
-        </article>
-      </div>
+
     </section>
 
-    <section class="section final" id="proposal">
-      <div class="proposal reveal">
-        <p class="eyebrow">Aaru...</p>
-        <h2>I can't change what happened.</h2>
-        <p>But I can choose what happens next.</p>
-        <h1>Will you give us another chance?</h1>
-        <div class="proposal-buttons">
-          <button class="yes-btn" id="yesBtn">❤️ YES, LET'S TRY AGAIN</button>
-          <button class="maybe-btn" id="maybeBtn">🫣 I NEED SOME TIME</button>
+
+    <!-- ================= PAGE 8 : SORRY LETTER ================= -->
+
+    <section class="page soft letter-page">
+
+        <div class="letter-container">
+
+            <div
+                class="envelope"
+                id="envelope"
+            >
+
+                <div class="envelope-flap"></div>
+
+                <div class="envelope-body">
+                    💌
+                </div>
+
+            </div>
+
+
+            <p class="letter-label">
+                A letter for Aaru
+            </p>
+
+
+            <article
+                id="letterContent"
+                class="letter hidden"
+            >
+
+                <h2>
+                    Aaru,
+                </h2>
+
+
+                <p>
+                    I know sirf “sorry” bol dene se
+                    woh sab undo nahi ho jaata
+                    jo maine kiya.
+                </p>
+
+
+                <p>
+                    Maine tumhe beech mein chhod diya tha.
+                    Maine breakup ka decision liya,
+                    aur shayad us waqt mujhe laga tha
+                    ki main jo kar raha hoon woh sahi hai.
+                </p>
+
+
+                <p>
+                    <strong>
+                        But now, looking back,
+                        I realise ki maine galti ki thi.
+                    </strong>
+                </p>
+
+
+                <p>
+                    Tumhe hurt karna,
+                    tumse door chale jaana...
+                    ye sab cheezein ab samajh aati hain
+                    ki kitni wrong thi.
+                </p>
+
+
+                <p>
+                    Main ye nahi bolunga ki
+                    “mujhe ek chance do kyunki
+                    main tumhare bina nahi reh sakta.”
+                </p>
+
+
+                <p>
+                    Main bas itna bolunga ki
+                    <strong>
+                        I want to become better.
+                    </strong>
+                </p>
+
+
+                <p>
+                    Better at understanding you.
+                    Better at communicating.
+                    Aur sabse important —
+                    better at valuing what I have
+                    before I lose it.
+                </p>
+
+
+                <p>
+                    Mujhe nahi pata tumhare dil mein
+                    mere liye ab kya hai.
+                </p>
+
+
+                <p>
+                    Shayad gussa ho.
+                    Hurt ho.
+                    Confused ho.
+                </p>
+
+
+                <p>
+                    Aur honestly,
+                    <strong>
+                        tum jo feel karti ho,
+                        woh valid hai.
+                    </strong>
+                </p>
+
+
+                <p>
+                    But agar mere liye tumhare dil mein
+                    thodi si bhi jagah abhi baaki hai...
+                </p>
+
+
+                <p class="letter-highlight">
+                    Can we try again?
+                </p>
+
+
+                <p>
+                    Not to repeat the old story.
+                </p>
+
+
+                <p>
+                    <strong>
+                        But to write a better one
+                        this time. ❤️
+                    </strong>
+                </p>
+
+
+                <button class="primary-btn next">
+                    One last thing →
+                </button>
+
+            </article>
+
         </div>
-        <div id="final-message" class="final-message hidden"></div>
-      </div>
-    </section>
-  </main>
 
-  <script src="script.js"></script>
+    </section>
+
+
+    <!-- ================= PAGE 9 : PROPOSAL ================= -->
+
+    <section class="page final-page">
+
+        <div class="page-content proposal">
+
+            <p class="eyebrow">
+                Aaru...
+            </p>
+
+
+            <h2>
+                I can't change
+                <br>
+                what happened.
+            </h2>
+
+
+            <p>
+                But I can choose
+                what happens next.
+            </p>
+
+
+            <h1>
+                Will you give us
+                <br>
+                another chance?
+            </h1>
+
+
+            <div class="proposal-buttons">
+
+                <button
+                    id="yesBtn"
+                    class="yes-btn"
+                >
+                    ❤️ YES, LET'S TRY AGAIN
+                </button>
+
+
+                <button
+                    id="maybeBtn"
+                    class="maybe-btn"
+                >
+                    🫣 I NEED SOME TIME
+                </button>
+
+            </div>
+
+
+            <div
+                id="final-message"
+                class="final-message hidden"
+            ></div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="script.js"></script>
+
 </body>
 </html>
