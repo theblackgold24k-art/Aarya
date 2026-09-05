@@ -1,159 +1,381 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const $ = (s) => document.querySelector(s);
-  const $$ = (s) => [...document.querySelectorAll(s)];
 
-  // Smooth navigation
-  $$("[data-scroll]").forEach(btn => {
-    btn.addEventListener("click", () => {
-      document.querySelector(btn.dataset.scroll)?.scrollIntoView({behavior:"smooth"});
-    });
-  });
+    /* =========================
+       PAGE NAVIGATION
+    ========================= */
 
-  // Scroll reveal
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {threshold: .12});
-  $$(".reveal").forEach(el => observer.observe(el));
+    const pages = [...document.querySelectorAll(".page")];
 
-  // Floating hearts
-  const hearts = $("#hearts");
-  function makeHeart() {
-    const h = document.createElement("span");
-    h.className = "heart";
-    h.textContent = Math.random() > .5 ? "♥" : "♡";
-    h.style.left = Math.random() * 100 + "%";
-    h.style.fontSize = (12 + Math.random() * 18) + "px";
-    h.style.animationDuration = (7 + Math.random() * 7) + "s";
-    hearts.appendChild(h);
-    setTimeout(() => h.remove(), 15000);
-  }
-  setInterval(makeHeart, 900);
+    let currentPage = 0;
 
-  // Simple editable memory quiz
-  const questions = [
-    {
-      q: "Where did our little story start getting interesting?",
-      options: ["Instagram 👀", "LinkedIn 💼", "Discord 🎮", "Email 📧"],
-      answer: 0
-    },
-    {
-      q: "What is our little hashtag?",
-      options: ["#AaruForever", "#Aaruma", "#AkAaru", "#Aaru2026"],
-      answer: 1
+
+    function showPage(index) {
+
+        if (index < 0 || index >= pages.length) {
+            return;
+        }
+
+        pages[currentPage].classList.remove("active");
+
+        pages[currentPage].classList.add("previous");
+
+
+        pages[index].classList.remove("previous");
+
+        pages[index].classList.add("active");
+
+
+        currentPage = index;
+
     }
-  ];
 
-  let qi = 0;
-  function renderQuiz() {
-    const item = questions[qi];
-    $("#quiz-question").textContent = item.q;
-    const box = $("#quiz-options");
-    box.innerHTML = "";
-    item.options.forEach((option, i) => {
-      const b = document.createElement("button");
-      b.className = "quiz-option";
-      b.textContent = option;
-      b.addEventListener("click", () => {
-        const feedback = $("#quiz-feedback");
-        if (i === item.answer) {
-          feedback.textContent = "Okayyy, detective ji. 🕵️‍♀️❤️";
-          if (qi < questions.length - 1) {
-            setTimeout(() => { qi++; renderQuiz(); }, 900);
-          } else {
-            feedback.textContent = "Okay, you remember. 😂❤️";
-          }
+
+    document.querySelectorAll(".next").forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            showPage(currentPage + 1);
+
+        });
+
+    });
+
+
+
+    /* =========================
+       FLOATING HEARTS
+    ========================= */
+
+    const heartsContainer =
+        document.getElementById("hearts");
+
+
+    function createHeart() {
+
+        const heart =
+            document.createElement("span");
+
+
+        heart.className = "heart";
+
+
+        heart.textContent =
+            Math.random() > .5
+                ? "♥"
+                : "♡";
+
+
+        heart.style.left =
+            Math.random() * 100 + "%";
+
+
+        heart.style.fontSize =
+            (12 + Math.random() * 18) + "px";
+
+
+        heart.style.animationDuration =
+            (7 + Math.random() * 7) + "s";
+
+
+        heartsContainer.appendChild(heart);
+
+
+        setTimeout(() => {
+
+            heart.remove();
+
+        }, 15000);
+
+    }
+
+
+    setInterval(createHeart, 900);
+
+
+
+    /* =========================
+       AARUMA PUZZLE
+    ========================= */
+
+    const target =
+        "AARUMA";
+
+
+    let letters = [
+        "A",
+        "R",
+        "U",
+        "M",
+        "A",
+        "A"
+    ];
+
+
+    let selectedLetter = null;
+
+
+    const lettersContainer =
+        document.getElementById("letters");
+
+
+    function renderPuzzle() {
+
+        lettersContainer.innerHTML = "";
+
+
+        letters.forEach((letter, index) => {
+
+            const tile =
+                document.createElement("button");
+
+
+            tile.className =
+                "letter-tile";
+
+
+            tile.textContent =
+                letter;
+
+
+            if (selectedLetter === index) {
+
+                tile.classList.add("selected");
+
+            }
+
+
+            tile.addEventListener(
+                "click",
+                () => {
+
+                    if (selectedLetter === null) {
+
+                        selectedLetter = index;
+
+                        renderPuzzle();
+
+                        return;
+
+                    }
+
+
+                    if (selectedLetter === index) {
+
+                        selectedLetter = null;
+
+                        renderPuzzle();
+
+                        return;
+
+                    }
+
+
+                    [
+                        letters[selectedLetter],
+                        letters[index]
+                    ] = [
+                        letters[index],
+                        letters[selectedLetter]
+                    ];
+
+
+                    selectedLetter = null;
+
+
+                    renderPuzzle();
+
+
+                    checkPuzzle();
+
+                }
+            );
+
+
+            lettersContainer.appendChild(tile);
+
+        });
+
+    }
+
+
+    function checkPuzzle() {
+
+        const current =
+            letters.join("");
+
+
+        const feedback =
+            document.getElementById(
+                "puzzle-feedback"
+            );
+
+
+        if (current === target) {
+
+            feedback.textContent =
+                "You got it. ❤️";
+
+
+            document
+                .getElementById("hashtag")
+                .classList.remove("hidden");
+
+
+            celebrate(20);
+
         } else {
-          feedback.textContent = "Nice try 😂 Try again.";
-        }
-      });
-      box.appendChild(b);
-    });
-  }
-  renderQuiz();
 
-  // AARUMA puzzle: tap two letters to swap
-  const target = "AARUMA";
-  let letters = ["A","R","U","M","A","A"];
-  let selected = null;
-  const lettersBox = $("#letters");
+            feedback.textContent =
+                "Almost... keep going 👀";
 
-  function renderLetters() {
-    lettersBox.innerHTML = "";
-    letters.forEach((letter, i) => {
-      const tile = document.createElement("button");
-      tile.className = "letter-tile";
-      tile.textContent = letter;
-      tile.setAttribute("aria-label", `Letter ${letter}, position ${i+1}`);
-      if (selected === i) tile.classList.add("selected");
-      tile.addEventListener("click", () => {
-        if (selected === null) {
-          selected = i;
-          renderLetters();
-          return;
         }
-        if (selected === i) {
-          selected = null;
-          renderLetters();
-          return;
-        }
-        [letters[selected], letters[i]] = [letters[i], letters[selected]];
-        selected = null;
-        renderLetters();
-        checkPuzzle();
-      });
-      lettersBox.appendChild(tile);
-    });
-  }
 
-  function checkPuzzle() {
-    const current = letters.join("");
-    const feedback = $("#puzzle-feedback");
-    if (current === target) {
-      feedback.textContent = "You got it. ❤️";
-      $("#hashtag").classList.remove("hidden");
-      celebrate(18);
-    } else {
-      feedback.textContent = "Almost... keep going 👀";
     }
-  }
-  renderLetters();
 
-  // Envelope
-  $("#openLetter").addEventListener("click", () => {
-    document.querySelector("#letter")?.scrollIntoView({behavior:"smooth"});
-    setTimeout(() => {
-      $("#envelope").classList.add("open");
-      setTimeout(() => $("#letterContent").classList.remove("hidden"), 500);
-    }, 700);
-  });
 
-  $("#envelope").addEventListener("click", () => {
-    $("#envelope").classList.add("open");
-    $("#letterContent").classList.remove("hidden");
-  });
+    renderPuzzle();
 
-  // Final proposal
-  $("#yesBtn").addEventListener("click", () => {
-    const msg = $("#final-message");
-    msg.innerHTML = "<strong>Maybe this is where our next chapter begins. ❤️</strong><br><br>#Aaruma";
-    msg.classList.remove("hidden");
-    celebrate(45);
-  });
 
-  $("#maybeBtn").addEventListener("click", () => {
-    const msg = $("#final-message");
-    msg.innerHTML = "Take all the time you need. 🌷<br><br>I just wanted you to know that I'm sorry...<br>and that this time, I genuinely want to do better.";
-    msg.classList.remove("hidden");
-  });
 
-  function celebrate(count) {
-    for (let i = 0; i < count; i++) {
-      setTimeout(makeHeart, i * 35);
+    /* =========================
+       OPEN LETTER
+    ========================= */
+
+    const openLetter =
+        document.getElementById("openLetter");
+
+
+    const envelope =
+        document.getElementById("envelope");
+
+
+    const letterContent =
+        document.getElementById("letterContent");
+
+
+    openLetter.addEventListener(
+        "click",
+        () => {
+
+            showPage(currentPage + 1);
+
+
+            setTimeout(() => {
+
+                envelope.classList.add("open");
+
+
+                setTimeout(() => {
+
+                    letterContent
+                        .classList
+                        .remove("hidden");
+
+                }, 500);
+
+            }, 500);
+
+        }
+    );
+
+
+    envelope.addEventListener(
+        "click",
+        () => {
+
+            envelope.classList.add("open");
+
+            letterContent
+                .classList
+                .remove("hidden");
+
+        }
+    );
+
+
+
+    /* =========================
+       FINAL PROPOSAL
+    ========================= */
+
+    const yesButton =
+        document.getElementById("yesBtn");
+
+
+    const maybeButton =
+        document.getElementById("maybeBtn");
+
+
+    const finalMessage =
+        document.getElementById(
+            "final-message"
+        );
+
+
+    yesButton.addEventListener(
+        "click",
+        () => {
+
+            finalMessage.innerHTML = `
+                <strong>
+                    Maybe this is where our
+                    next chapter begins. ❤️
+                </strong>
+                <br><br>
+                #Aaruma
+            `;
+
+
+            finalMessage
+                .classList
+                .remove("hidden");
+
+
+            celebrate(50);
+
+        }
+    );
+
+
+    maybeButton.addEventListener(
+        "click",
+        () => {
+
+            finalMessage.innerHTML = `
+                Take all the time you need. 🌷
+                <br><br>
+                I just wanted you to know
+                that I'm sorry...
+                <br>
+                and that this time,
+                I genuinely want to do better.
+            `;
+
+
+            finalMessage
+                .classList
+                .remove("hidden");
+
+        }
+    );
+
+
+
+    /* =========================
+       CELEBRATION
+    ========================= */
+
+    function celebrate(count) {
+
+        for (let i = 0; i < count; i++) {
+
+            setTimeout(
+                createHeart,
+                i * 35
+            );
+
+        }
+
     }
-  }
+
 });
